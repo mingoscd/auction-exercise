@@ -1,0 +1,18 @@
+default: &default
+  adapter: postgresql
+  pool: 5
+  timeout: 5000
+  username: mingos
+  password: 12345678
+
+development:
+  <<: *default
+  database: auction-site_development
+
+test:
+  <<: *default
+  database: auction-site_test
+
+production:
+  <<: *default
+  database: auction-site_production
