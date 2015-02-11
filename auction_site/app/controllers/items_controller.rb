@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
 	def index
-		@items = Item.all
+		@items = Item.all.where("expire_date > ?", Date.today) 
 		@users = User.all
 	end
 

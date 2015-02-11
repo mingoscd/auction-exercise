@@ -6,6 +6,10 @@ class Item < ActiveRecord::Base
 	validates :name, presence: true, length: { maximum: 30 }
 	validate :proper_date
 
+	def assign_winner
+		self.update_attribute :winner_id, self.bids.last.user_id
+	end
+
 	private
 
 	def proper_date
@@ -13,4 +17,5 @@ class Item < ActiveRecord::Base
 			errors.add(:expire_date, "Wrong date")
 		end
 	end
+
 end

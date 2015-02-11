@@ -7,7 +7,11 @@ class Bid < ActiveRecord::Base
 	private
 
 	def proper_amount
-		last_bid = Item.find(item_id).bids.last.amount
+		if Item.find(item_id).bids.any?
+		 	last_bid = Item.find(item_id).bids.last.amount
+		else
+			last_bid = 0
+		end
 
 		if amount <= last_bid
 			errors.add(:amount, "New bids have to be higher than the last bid accepted")
