@@ -1,0 +1,13 @@
+<h2>Auction page</h2>
+<%= link_to('Create new auction', new_item_path()) %>
+
+<% @items.each do |item| %>
+	<div class="item-container">
+		<ul>
+			<li><%= item.name %></li>
+			<li><%= item.description %></li>
+			<li><%= item.expire_date %></li>
+			<li><%= link_to('Bid for this item', new_item_bid_path(item.id) ) %></li>
+		</ul>
+	</div>
+<% end %>

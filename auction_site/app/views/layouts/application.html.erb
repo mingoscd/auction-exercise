@@ -7,6 +7,13 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+	<header>
+		<h1>Auction home</h1>
+		<ul>
+			<li><%= link_to('Home', root_path()) %></li>
+			<li><%= link_to('Auctions', items_path()) %></li>
+		</ul>
+	</header>
 
 <%= yield %>
 
